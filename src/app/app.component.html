@@ -1,0 +1,46 @@
+<div class="container">
+  <h1 class="title">Список задач ToDo</h1>
+  
+  <form class="form" [formGroup]="reactiveForm" (ngSubmit)="addTodo()">
+
+    <mat-slider
+      formControlName="limit"
+      thumbLabel
+      tickInterval="1"
+      step="1"
+      min="0"
+      max="100"
+      aria-label="units">
+    </mat-slider>
+    <button type="button" mat-stroked-button color="primary" (click)="getNewLimitTodo()">Загрузить</button>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Your ToDo title</mat-label>
+      <input 
+        formControlName="title" 
+        matInput #title maxlength="33"
+        placeholder="Your ToDo title"
+      >
+      <mat-hint align="start">Don't disclose ZSU info</mat-hint>
+      <mat-hint align="end">{{title.value.length}} / 33</mat-hint>
+    </mat-form-field>
+    <button [disabled]="!this.reactiveForm.value.title" mat-stroked-button color="primary">Добавить</button>
+  </form>
+
+  <app-counter
+    [todoList]="todoList"
+    [complite]="complite"
+    [noComplite]="noComplite"
+  >
+  </app-counter>
+
+  <mat-selection-list  class="list" #shoes [multiple]="false">
+    <mat-list-option class="list__content" *ngFor="let todo of todoList">
+      <div class="list__item" (click)="onCompleteed(todo)">
+        <app-todo [todo]="todo">
+        </app-todo>
+        <button mat-mini-fab color="warn" (click)="delTodo(todo)">X</button>
+      </div>
+    </mat-list-option>
+  </mat-selection-list>
+</div>

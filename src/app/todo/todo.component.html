@@ -1,0 +1,3 @@
+<!-- <div>{{ todo.title }}</div> -->
+<div class="completed" *ngIf="todo.completed">{{ todo.title.slice(0, 33) }}</div>
+<div class="no" *ngIf="!todo.completed">{{ todo.title.slice(0, 33) }}</div>
