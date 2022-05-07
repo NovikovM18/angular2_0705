@@ -5,20 +5,15 @@
 @import '~@angular/material/prebuilt-themes/purple-green.css';
 
 html {
-  position: relative;
   margin: 0;
   padding: 0;
-  background-image: url(./bg.jpg);
+  background-image: url(./bga.gif);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
 }
 body {
-  position: absolute;
-  width: 100%;
-  margin: 0;
-  padding: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif; 
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.75);
 }
